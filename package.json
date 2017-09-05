@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "bin": {
-    "tmpl": "./bin/stpl.js"
+    "stpl": "./bin/stpl.js"
   },
   "author": "Justin Beaudry <beaudry.justin@gmail.com>",
   "repository": {
