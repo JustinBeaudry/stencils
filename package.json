@@ -1,7 +1,7 @@
 {
   "name": "stencils",
   "description": "A simple CLI tool for writing and generating templates for projects. Template CLI is a simplified yeoman.",
-  "version": "0.2.0",
+  "version": "0.4.0",
   "license": "MIT",
   "bin": {
     "stpl": "./bin/stpl.js"
