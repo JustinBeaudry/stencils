@@ -1,7 +1,7 @@
 Stencils
 =============
 
-A simple CLI tool for writing and generating templates for projects. Template CLI is a simplified yeoman.
+A simple CLI tool for writing and generating templates for projects; a simplified yeoman.
 
 ## Getting Started
 
