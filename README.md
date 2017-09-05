@@ -5,6 +5,12 @@ A simple tool for writing and generating templates for projects. Template CLI is
 
 ## Getting Started
 
+### Installation
+
+```javascript
+  npm i -g template-cli
+```
+
 ### Template rc file
 
 Each project requires a `.tmplrc` file, and `.templates` directory to be located in your projects root.</br>

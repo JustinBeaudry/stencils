@@ -6,6 +6,14 @@
   "bin": {
     "tmpl": "./bin/tmpl.js"
   },
+  "author": "Justin Beaudry <beaudry.justin@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JustinBeaudry/template-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JustinBeaudry/template-cli/issues"
+  },
   "dependencies": {
     "async": "^2.5.0",
     "chalk": "^2.1.0",
