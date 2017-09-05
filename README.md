@@ -1,6 +1,9 @@
 Stencils
 =============
 
+**DISCLAIMER:  This is an alpha project and as such has not settled on a stable API.<br/>
+Create feature request tickets or email me beaudry.justin@gmail.com to discuss further.**
+
 A simple CLI tool for writing and generating templates for projects; a simplified yeoman.
 
 ## Getting Started
@@ -50,5 +53,5 @@ The command above will create a file based on the template at `.templates/servic
 * `0.10.0-alpha`  - change default engine to ejs
 * `0.20.0-alpha`  - support for directory type templates
 * `0.30.0-alpha`  - support for groups (defaults to local)
-* `0.35.0-beta`  - add bash auto completion support
-* `1.0.0-rc1`   - release candidate
+* `0.35.0-beta`   - add bash auto completion support
+* `1.0.0-rc1`     - release candidate
