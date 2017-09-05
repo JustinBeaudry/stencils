@@ -27,7 +27,7 @@ or via the cli with `tmpl create templateName`.
 With a library of templates ready to be used `tmpl new` is your friend. Let's start with an example.
 
 ```bash
-  tmpl use services service
+  tmpl use service
 ```
 
 The command above will render the mustache template at `.templates/service.mst`.<br/>
