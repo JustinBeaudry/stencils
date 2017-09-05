@@ -16,7 +16,7 @@ A simple CLI tool for writing and generating templates for projects; a simplifie
 
 ### Template rc file
 
-Each project requires a `.stencilrc` file, and `.stencils` directory to be located in your projects root.</br>
+Each project requires a `.stlrc` file, and `.stencils` directory to be located in your projects root.</br>
 Projects should always be initialized with `stl init`.
 
 ### Setting up project templates
@@ -59,3 +59,8 @@ Once there are templates available to use run `stl use templateName`
 * `0.91.0-beta`   - beta release
 * `1.0.0-rc1`     - release candidate
 * `1.0.0`         - public release
+
+## Feature Ideas
+
+* remote templates
+* core templates (pre-established templates) using the groups feature TBD in `0.30.0-alpha`
