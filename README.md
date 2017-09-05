@@ -54,7 +54,8 @@ Once there are templates available to use run `stl use templateName`
 * `0.30.0-alpha`  - support for groups (defaults to local)
 * `0.35.0-alpha`  - add bash auto completion support
 * `0.50.0-alpha`  - update help text and cli output text
-* `0.51.0-alpha`  - unit and integration tests
-* `0.52.0-alpha`  - contributor guide
-* `0.55.0-beta`   - beta release
+* `0.80.0-alpha`  - unit and integration tests
+* `0.90.0-alpha`  - contributor guide
+* `0.91.0-beta`   - beta release
 * `1.0.0-rc1`     - release candidate
+* `1.0.0`         - public release
