@@ -12,7 +12,7 @@ const Mustache = require('../lib/template/engine/mustache');
 const Ejs = require('../lib/template/engine/ejs');
 
 let options = {
-  configFilePath: '.stencilsrc',
+  configFilePath: '.stlrc',
   templatesDir: '.stencils',
   engine: 'mustache'
 };
