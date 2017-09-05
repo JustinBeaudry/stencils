@@ -1,0 +1,21 @@
+{
+  "name": "template-cli",
+  "description": "A simple tool for writing and generating templates for projects. Template CLI is a simplified yeoman.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "bin": {
+    "tmpl": "./bin/tmpl.js"
+  },
+  "dependencies": {
+    "async": "^2.5.0",
+    "chalk": "^2.1.0",
+    "ejs": "^2.5.7",
+    "inquirer": "^3.2.3",
+    "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
+    "moment": "^2.18.1",
+    "mustache": "^2.3.0",
+    "opn": "^5.1.0",
+    "yargs": "^8.0.2"
+  }
+}
