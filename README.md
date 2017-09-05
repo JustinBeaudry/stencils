@@ -50,6 +50,7 @@ The command above will create a file based on the template at `.templates/servic
 ## Roadmap
 
 * `0.5.0-alpha`   - support for meta files and template reading for data population
+* `0.7.0-alpha`   - add command class and extend each command from class (will be used to hold some option)
 * `0.10.0-alpha`  - change default engine to ejs
 * `0.20.0-alpha`  - support for directory type templates
 * `0.30.0-alpha`  - support for groups (defaults to local)

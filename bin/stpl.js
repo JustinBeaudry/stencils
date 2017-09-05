@@ -129,6 +129,7 @@ async function command(commandFn, argv) {
       return Promise.resolve();
     }
   }
+  // @TODO:  if file type is JSON it should be auto-parsed by getFile
   try {
     file = JSON.parse(file);
   } catch(e) {
