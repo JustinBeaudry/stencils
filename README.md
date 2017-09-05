@@ -43,3 +43,9 @@ Once there are templates available to use run `stpl use templateName`
 ```
 
 The command above will create a file based on the template at `.templates/service.ext`.<br/>
+
+## Roadmap
+
+* `0.5.0`   - support for meta files and template reading for data population
+* `0.8.0`   - support for groups (defaults to local)
+* `1.0.0`   - release candidate
