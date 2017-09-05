@@ -1,10 +1,10 @@
 {
   "name": "stencils",
   "description": "A simple CLI tool for writing and generating templates for projects; a simplified yeoman.",
-  "version": "0.5.4-alpha",
+  "version": "0.5.6-alpha",
   "license": "MIT",
   "bin": {
-    "stpl": "./bin/stpl.js"
+    "stl": "./bin/index.js"
   },
   "author": "Justin Beaudry <beaudry.justin@gmail.com>",
   "repository": {

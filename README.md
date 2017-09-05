@@ -16,15 +16,15 @@ A simple CLI tool for writing and generating templates for projects; a simplifie
 
 ### Template rc file
 
-Each project requires a `.stplrc` file, and `.stencils` directory to be located in your projects root.</br>
-Projects should always be initialized with `stpl init`.
+Each project requires a `.stencilrc` file, and `.stencils` directory to be located in your projects root.</br>
+Projects should always be initialized with `stl init`.
 
 ### Setting up project templates
    
 At it's core Stencils is just a CLI over a template engine.<br/>
 It uses a structured filesystem format to store the templates in the project.
 
-New templates can be added via the cli with `stpl add templateName`.<br/>
+New templates can be added via the cli with `stl add templateName`.<br/>
 It's important to add new templates via the cli so that the files have their appropriate meta files.
  
 ### Listing project templates 
@@ -34,18 +34,16 @@ It's important to add new templates via the cli so that the files have their app
 ### Editing templates
 
 Since templates are just text files any text editor can edit them.<br/>
-For convenience you can open the files via `stpl open templateName`<br/> 
-Or specify an application with `stpl open -a WebStorm templateName`
+For convenience you can open the files via `stl open templateName`<br/> 
+Or specify an application with `stl open -a WebStorm templateName`
  
 ### Creating project files from templates
 
-Once there are templates available to use run `stpl use templateName`
+Once there are templates available to use run `stl use templateName`
 
 ```bash
   stpl use service
 ```
-
-The command above will create a file based on the template at `.templates/service.ext`.<br/>
 
 ## Roadmap
 
