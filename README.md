@@ -29,7 +29,7 @@ It's important to add new templates via the cli so that the files have their app
  
 ### Listing project templates 
 
-`stpl ls` will list all available templates
+`stl ls` will list all available templates
 
 ### Editing templates
 
