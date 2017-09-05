@@ -6,12 +6,13 @@ const _ = require('lodash');
 const yargs = require('yargs');
 const utils = require('../lib/utils');
 const path = require('path');
+const chalk = require('chalk');
 
 const Mustache = require('../lib/template/engine/mustache');
 const Ejs = require('../lib/template/engine/ejs');
 
 let options = {
-  configFilePath: '.tmplrc',
+  configFilePath: '.stplrc',
   templatesDir: '.templates',
   engine: 'mustache'
 };
@@ -24,24 +25,24 @@ const ENGINES = {
 yargs
   .option('verbose', {
     alias: 'v',
-    describe: 'Output additional logging',
+    describe: 'output additional logging',
     default: false
   })
   .option('engine', {
     alias: 'e',
-    describe: 'Override the template rendering engine.',
+    describe: 'override the template rendering engine.',
     default: 'mustache'
   })
   .option('extension', {
     alias: 'ext',
-    describe: 'Override template extension',
+    describe: 'override template extension',
     default: ENGINES.mustache.extension
   })
   .command([
       'init',
       'i'
     ],
-    'Init a project with a .tmplrc file, and .templates dir',
+    'init a project with a .tmplrc file, and .templates dir',
     yargs => {
       yargs.option('force', {
         alias: 'f',
@@ -54,7 +55,7 @@ yargs
       'add <name>',
       'a'
     ],
-    'Add a blank template file',
+    'add a blank template file',
     _.noop,
     argv => command(require('../lib/commands/add'), argv).catch(utils.print.error)
   )
@@ -62,7 +63,7 @@ yargs
       'use <name> [fileName]',
       'u'
     ],
-    'Create a file from a template',
+    'create a file from a template',
     yargs => {
       yargs.option('force', {
         alias: 'f',
@@ -76,7 +77,7 @@ yargs
       'ls',
       'l'
     ],
-    'List all templates',
+    'list all templates',
     _.noop,
     argv => command(require('../lib/commands/list'), argv).catch(utils.print.error)
   )
@@ -84,12 +85,12 @@ yargs
       'open <name>',
       'o'
     ],
-    'Open template file',
+    'open template file',
     yargs => {
       yargs
         .option('application', {
           alias: 'a',
-          describe: 'Application to open file with',
+          describe: 'application to open file with',
           default: 'Sublime Text'
         })
     },
@@ -99,7 +100,7 @@ yargs
       'print <name>',
       'p'
     ],
-    'Print template to console',
+    'print template to console',
     _.noop,
     argv => command(require('../lib/commands/print'), argv).catch(utils.print.error)
   )
@@ -112,21 +113,32 @@ yargs
 async function command(commandFn, argv) {
   const engine = ENGINES[argv.engine];
   if (!engine) return new Error(`unsupported engine requested:  ${argv.engine}`);
+
   argv.engine = engine.engine;
   argv.extension = engine.extension;
+
   let file;
   let opts = {};
   try {
     file = await utils.getFile(options.configFilePath);
   } catch(e) {
-    utils.print.error(e);
+    // prevent calls to init from not continuing
+    if (argv._.indexOf('init') === -1) {
+      utils.print.warn(`not a stencils project. ${chalk.bold.cyan('stpl init')} to initialize project for use with stencils.`);
+      return Promise.resolve();
+    }
   }
+
   if (file) {
     Object.assign(opts, options, file, argv);
   } else {
     Object.assign(opts, options, argv);
   }
-  utils.print.info(`\ntmpl@v${pkg.version}\n`);
+
+  if (options.verbose) {
+    utils.print.info(`\n${pkg.name}@v${pkg.version}\n`);
+  }
+
   return commandFn(opts);
 }
 
