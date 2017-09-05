@@ -105,6 +105,7 @@ yargs
     argv => command(require('../lib/commands/print'), argv).catch(utils.print.error)
   )
   .usage('$0 <cmd> [args]')
+  // @TODO:  add bash auto-complete
   .help()
   .wrap(70)
   .version(pkg.version)
@@ -114,7 +115,7 @@ async function command(commandFn, argv) {
   const engine = ENGINES[argv.engine];
   if (!engine) return new Error(`unsupported engine requested:  ${argv.engine}`);
 
-  argv.engine = engine.engine;
+  argv.engine = engine;
   argv.extension = engine.extension;
 
   let file;
@@ -126,6 +127,14 @@ async function command(commandFn, argv) {
     if (argv._.indexOf('init') === -1) {
       utils.print.warn(`not a stencils project. ${chalk.bold.cyan('stpl init')} to initialize project for use with stencils.`);
       return Promise.resolve();
+    }
+  }
+  try {
+    file = JSON.parse(file);
+  } catch(e) {
+    if (argv._.indexOf('init') === -1) {
+      utils.print.error('error parsing .stplrc file');
+      return Promise.reject();
     }
   }
 

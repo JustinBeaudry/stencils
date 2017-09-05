@@ -46,6 +46,9 @@ The command above will create a file based on the template at `.templates/servic
 
 ## Roadmap
 
-* `0.5.0`   - support for meta files and template reading for data population
-* `0.8.0`   - support for groups (defaults to local)
-* `1.0.0`   - release candidate
+* `0.5.0-alpha`   - support for meta files and template reading for data population
+* `0.10.0-alpha`  - change default engine to ejs
+* `0.20.0-alpha`  - support for directory type templates
+* `0.30.0-alpha`  - support for groups (defaults to local)
+* `0.35.0-beta`  - add bash auto completion support
+* `1.0.0-rc1`   - release candidate
