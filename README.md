@@ -13,7 +13,7 @@ A simple CLI tool for writing and generating templates for projects; a simplifie
 
 ### Template rc file
 
-Each project requires a `.stplrc` file, and `.templates` directory to be located in your projects root.</br>
+Each project requires a `.stplrc` file, and `.stencils` directory to be located in your projects root.</br>
 Projects should always be initialized with `stpl init`.
 
 ### Setting up project templates

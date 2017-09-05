@@ -13,7 +13,7 @@ const Ejs = require('../lib/template/engine/ejs');
 
 let options = {
   configFilePath: '.stplrc',
-  templatesDir: '.templates',
+  templatesDir: '.stencils',
   engine: 'mustache'
 };
 
