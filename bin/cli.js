@@ -1,5 +1,32 @@
 #!/usr/bin/env node
+
+/**
+ *
+ * Stencils CLI
+ * Copyright 2017 Justin Beaudry (beaudry.justin@gmail.com)
+ *
+ * Licensed under MIT License
+ *
+ * SEE LICENSE.md
+ */
+
 'use strict';
+
+/**
+ * @file cli
+ * @author Justin Beaudry <beaudry.justin@gmail.com>
+ * @project Stencils CLI
+ * @license {@link https://opensource.org/licenses/MIT}
+ */
+
+/**
+ *
+ * Stencils CLI
+ *
+ * @module cli
+ * @public
+ *
+ */
 
 const pkg = require('../package.json');
 const _ = require('lodash');
@@ -100,7 +127,7 @@ yargs
     argv => print.execute(argv)
   )
   .usage('$0 <cmd> [args]')
-  // @TODO:  add bash auto-complete
+  // @TODO:  add bash auto-complete - 0.40.0-alpha
   .help()
   .wrap(70)
   .version(pkg.version)
