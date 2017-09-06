@@ -5,14 +5,19 @@ const pkg = require('../package.json');
 const _ = require('lodash');
 const yargs = require('yargs');
 
-const COMMANDS = {
-  Init: require('../lib/commands/init'),
-  Add: require('../lib/commands/add'),
-  Use: require('../lib/commands/use'),
-  List: require('../lib/commands/list'),
-  Open: require('../lib/commands/open'),
-  Print: require('../lib/commands/print')
-};
+const InitCommand = require('../lib/commands/init');
+const AddCommand = require('../lib/commands/add');
+const UseCommand = require('../lib/commands/use');
+const ListCommand = require('../lib/commands/list');
+const OpenCommand = require('../lib/commands/open');
+const PrintCommand = require('../lib/commands/print');
+
+const init = new InitCommand();
+const add = new AddCommand();
+const use = new UseCommand();
+const list = new ListCommand();
+const open = new OpenCommand();
+const print = new PrintCommand();
 
 yargs
   .option('verbose', {
@@ -39,7 +44,7 @@ yargs
         describe: 'force new rc file and templates directory.'
       })
     },
-    argv => new COMMANDS.Init().execute(argv)
+    argv => init.execute(argv)
   )
   .command([
       'add <name>',
@@ -47,7 +52,7 @@ yargs
     ],
     'add a blank template file',
     _.noop,
-    argv => new COMMANDS.Add().execute(argv)
+    argv => add.execute(argv)
   )
   .command([
       'use <name> [fileName]',
@@ -60,7 +65,7 @@ yargs
         describe: 'force overwrite of file creation'
       })
     },
-    argv => new COMMANDS.Use().execute()
+    argv => use.execute(argv)
   )
   .command([
       'list',
@@ -69,7 +74,7 @@ yargs
     ],
     'list all templates',
     _.noop,
-    argv => new COMMANDS.List().execute(argv)
+    argv => list.execute(argv)
   )
   .command([
       'open <name>',
@@ -84,7 +89,7 @@ yargs
           default: 'Sublime Text'
         })
     },
-    argv => new COMMANDS.Open().execute(argv)
+    argv => open.execute(argv)
   )
   .command([
       'print <name>',
@@ -92,7 +97,7 @@ yargs
     ],
     'print template to console',
     _.noop,
-    argv => new COMMANDS.Print().execute(argv)
+    argv => print.execute(argv)
   )
   .usage('$0 <cmd> [args]')
   // @TODO:  add bash auto-complete
