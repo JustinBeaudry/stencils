@@ -48,7 +48,7 @@ Once there are templates available to use run `stl use templateName`
 ## Roadmap
 
 * `0.5.0-alpha`   - ~~support for meta files and template reading for data population~~
-* `0.7.0-alpha`   - add command class and extend each command from class (will be used to hold some option)
+* `0.7.0-alpha`   - ~~add command class and extend each command from class (will be used to hold some option)~~
 * `0.8.0-alpha`   - centralize logging to use bunyan
 * `0.10.0-alpha`  - change default engine to ejs
 * `0.20.0-alpha`  - support for directory type templates
