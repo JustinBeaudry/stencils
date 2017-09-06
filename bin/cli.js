@@ -56,10 +56,6 @@ yargs
     alias: 'e',
     describe: 'override the template rendering engine.'
   })
-  .option('extension', {
-    alias: 'ext',
-    describe: 'override template extension'
-  })
   .command([
       'init',
       'i'
@@ -127,7 +123,7 @@ yargs
     argv => print.execute(argv)
   )
   .usage('$0 <cmd> [args]')
-  // @TODO:  add bash auto-complete - 0.40.0-alpha
+  // @TODO:  add bash auto-complete - 0.60.0-alpha
   .help()
   .wrap(70)
   .version(pkg.version)
