@@ -1,8 +1,7 @@
 Stencils
 =============
 
-**DISCLAIMER:  This is an alpha project and as such has not settled on a stable API.<br/>
-Create feature request tickets or email me beaudry.justin@gmail.com to discuss further.**
+**DISCLAIMER:  This is an alpha project and as such has not settled on a stable API.<br/>**
 
 A simple CLI tool for writing and generating templates for projects; a simplified yeoman.
 
@@ -65,3 +64,8 @@ Once there are templates available to use run `stl use templateName`
 
 * remote templates
 * core templates (pre-established templates) using the groups feature TBD in `0.30.0-alpha`
+
+## Want to help or have an idea?<br/>
+[Create feature request ticket](https://github.com/JustinBeaudry/stencils/issues/new?labels=feature%20request)
+or
+[Email](beaudry.justin@gmail.com)
