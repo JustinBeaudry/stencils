@@ -4,22 +4,14 @@
 const pkg = require('../package.json');
 const _ = require('lodash');
 const yargs = require('yargs');
-const utils = require('../lib/utils');
-const path = require('path');
-const chalk = require('chalk');
 
-const Mustache = require('../lib/template/engine/mustache');
-const Ejs = require('../lib/template/engine/ejs');
-
-let options = {
-  configFilePath: '.stlrc',
-  templatesDir: '.stencils',
-  engine: 'mustache'
-};
-
-const ENGINES = {
-  mustache: new Mustache(),
-  ejs: new Ejs(),
+const COMMANDS = {
+  Init: require('../lib/commands/init'),
+  Add: require('../lib/commands/add'),
+  Use: require('../lib/commands/use'),
+  List: require('../lib/commands/list'),
+  Open: require('../lib/commands/open'),
+  Print: require('../lib/commands/print')
 };
 
 yargs
@@ -30,13 +22,11 @@ yargs
   })
   .option('engine', {
     alias: 'e',
-    describe: 'override the template rendering engine.',
-    default: 'mustache'
+    describe: 'override the template rendering engine.'
   })
   .option('extension', {
     alias: 'ext',
-    describe: 'override template extension',
-    default: ENGINES.mustache.extension
+    describe: 'override template extension'
   })
   .command([
       'init',
@@ -49,7 +39,7 @@ yargs
         describe: 'force new rc file and templates directory.'
       })
     },
-    argv => command(require('../lib/commands/init'), argv).catch(utils.print.error)
+    argv => new COMMANDS.Init().execute(argv)
   )
   .command([
       'add <name>',
@@ -57,7 +47,7 @@ yargs
     ],
     'add a blank template file',
     _.noop,
-    argv => command(require('../lib/commands/add'), argv).catch(utils.print.error)
+    argv => new COMMANDS.Add().execute(argv)
   )
   .command([
       'use <name> [fileName]',
@@ -70,7 +60,7 @@ yargs
         describe: 'force overwrite of file creation'
       })
     },
-    argv => command(require('../lib/commands/use'), argv).catch(utils.print.error)
+    argv => new COMMANDS.Use().execute()
   )
   .command([
       'list',
@@ -79,7 +69,7 @@ yargs
     ],
     'list all templates',
     _.noop,
-    argv => command(require('../lib/commands/list'), argv).catch(utils.print.error)
+    argv => new COMMANDS.List().execute(argv)
   )
   .command([
       'open <name>',
@@ -94,7 +84,7 @@ yargs
           default: 'Sublime Text'
         })
     },
-    argv => command(require('../lib/commands/open'), argv).catch(utils.print.error)
+    argv => new COMMANDS.Open().execute(argv)
   )
   .command([
       'print <name>',
@@ -102,7 +92,7 @@ yargs
     ],
     'print template to console',
     _.noop,
-    argv => command(require('../lib/commands/print'), argv).catch(utils.print.error)
+    argv => new COMMANDS.Print().execute(argv)
   )
   .usage('$0 <cmd> [args]')
   // @TODO:  add bash auto-complete
@@ -110,45 +100,3 @@ yargs
   .wrap(70)
   .version(pkg.version)
   .argv
-
-async function command(commandFn, argv) {
-  const engine = ENGINES[argv.engine];
-  if (!engine) return new Error(`unsupported engine requested:  ${argv.engine}`);
-
-  argv.engine = engine;
-  argv.extension = engine.extension;
-
-  let file;
-  let opts = {};
-  try {
-    file = await utils.getFile(options.configFilePath);
-  } catch(e) {
-    // prevent calls to init from not continuing
-    if (argv._.indexOf('init') === -1) {
-      utils.print.warn(`not a stencils project. ${chalk.bold.cyan('stpl init')} to initialize project for use with stencils.`);
-      return Promise.resolve();
-    }
-  }
-  // @TODO:  if file type is JSON it should be auto-parsed by getFile
-  try {
-    file = JSON.parse(file);
-  } catch(e) {
-    if (argv._.indexOf('init') === -1) {
-      utils.print.error('error parsing .stplrc file');
-      return Promise.reject();
-    }
-  }
-
-  if (file) {
-    Object.assign(opts, options, file, argv);
-  } else {
-    Object.assign(opts, options, argv);
-  }
-
-  if (options.verbose) {
-    utils.print.info(`\n${pkg.name}@v${pkg.version}\n`);
-  }
-
-  return commandFn(opts);
-}
-
