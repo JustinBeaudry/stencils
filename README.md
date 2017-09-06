@@ -38,7 +38,7 @@ Or specify an application with `stl open -a WebStorm templateName`
  
 ### Creating project files from templates
 
-Once there are templates available to use run `stl use templateName`
+Once there are templates available to use execTest `stl use templateName`
 
 ```bash
   stpl use service
