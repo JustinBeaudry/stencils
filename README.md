@@ -48,14 +48,15 @@ Once there are templates available to use run `stl use templateName`
 
 * `0.5.0-alpha`   - ~~support for meta files and template reading for data population~~
 * `0.7.0-alpha`   - ~~add command class and extend each command from class (will be used to hold some option)~~
-* `0.8.0-alpha`   - centralize logging to use bunyan
-* `0.10.0-alpha`  - change default engine to ejs
+* `0.8.0-alpha`   - change default engine to ejs
+* `0.8.5-alpha`   - support ejs options (including custom delimiter)
+* `0.9.0-alpha`   - get jsdoc working
 * `0.20.0-alpha`  - support for directory type templates
 * `0.30.0-alpha`  - support for groups (defaults to local)
-* `0.35.0-alpha`  - add bash auto completion support
+* `0.40.0-alpha`  - add bash auto completion support
 * `0.50.0-alpha`  - update help text and cli output text
 * `0.80.0-alpha`  - unit and integration tests
-* `0.90.0-alpha`  - contributor guide
+* `0.90.0-alpha`  - update docs
 * `0.91.0-beta`   - beta release
 * `1.0.0-rc1`     - release candidate
 * `1.0.0`         - public release
@@ -64,6 +65,7 @@ Once there are templates available to use run `stl use templateName`
 
 * remote templates
 * core templates (pre-established templates) using the groups feature TBD in `0.30.0-alpha`
+* symlink templates
 
 ## Want to help or have an idea?<br/>
 [Create feature request ticket](https://github.com/JustinBeaudry/stencils/issues/new?labels=feature%20request)
