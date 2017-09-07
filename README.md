@@ -3,7 +3,7 @@ Stencils
 
 **DISCLAIMER:  This is an alpha project and as such has not settled on a stable API.<br/>**
 
-A simple CLI tool for writing and generating templates for projects; a simplified yeoman.
+A simple CLI tool for managing and generating templates for projects; a simplified yeoman.
 
 ## Getting Started
 
@@ -13,34 +13,58 @@ A simple CLI tool for writing and generating templates for projects; a simplifie
   npm i -g stencils
 ```
 
-### Template rc file
+### Setup
 
-Each project requires a `.stlrc` file, and `.stencils` directory to be located in your projects root.</br>
-Projects should always be initialized with `stl init`.
+Stencil Projects are folders that have a `.stlrc` file and `.stencils` directory.  
+ 
+```bash
+  stl init
+```
 
-### Setting up project templates
+## Adding Templates
    
-At it's core Stencils is just a CLI over a template engine.<br/>
-It uses a structured filesystem format to store the templates in the project.
+Stencils uses a structured filesystem format to store the templates in the project.
+New Templates must be added with:
 
-New templates can be added via the cli with `stl add templateName`.<br/>
-It's important to add new templates via the cli so that the files have their appropriate meta files.
+```bash
+  stl add templateName
+```
+
+'Add' will prompt for what the filetype is for the template
+
+## Listing Templates
+
+```bash
+  stl ls
+```
+
+```bash
+  stl ls -a
+```
+
+## Editing templates
+
+For convenience you can open the files with:
  
-### Listing project templates 
-
-`stl ls` will list all available templates
-
-### Editing templates
-
-Since templates are just text files any text editor can edit them.<br/>
-For convenience you can open the files via `stl open templateName`<br/> 
-Or specify an application with `stl open -a WebStorm templateName`
+ ```bash
+  stl open templateName
+```
  
-### Creating project files from templates
+Or specify an application with: 
 
-Once there are templates available to use run `stl use templateName`
+```bash
+  stl open -a WebStorm templateName
+```
+ 
+## Using Templates
 
-### Template Engine settings
+```bash
+  stl use templateName
+```
+
+'Use' will scan the template for all the template variables and prompt for the data.
+
+## Template Engine settings
 
 Stencils supports Ejs and Mustache out-of-the-box, but defaults to ejs.<br/>
 Each of these template engines can be configured in the `.stlrc` file.
@@ -70,6 +94,7 @@ the default engine can be overridden at run-time by passing the `--engine` flag 
 
 ```bash
  stl add service --engine mustache
+ stl use service --engine mustache
 ```
 
 The order of operations for how stencils decides which engine to use is from left to right, where left has the most authority

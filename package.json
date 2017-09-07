@@ -1,7 +1,7 @@
 {
   "name": "stencils",
-  "description": "A simple CLI tool for writing and generating templates for projects; a simplified yeoman.",
-  "version": "0.9.1-alpha",
+  "description": "A simple CLI tool for managing and generating templates for projects; a simplified yeoman.",
+  "version": "0.9.2-alpha",
   "license": "MIT",
   "engines": {
     "node": ">= 8.4.0"
