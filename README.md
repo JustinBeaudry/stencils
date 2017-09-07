@@ -21,6 +21,12 @@ Stencil Projects are folders that have a `.stlrc` file and `.stencils` directory
   stl init
 ```
 
+When determining if a Project is a Stencil Project stencil looks at the current project and
+checks for the `.stlrc` file. If it doesn't find one in the current directory stencils will
+crawl the file system up until it reaches the users home directory.
+
+**NOTE:  do not initialize stencils as root or outside of the user directory**
+
 ## Adding Templates
    
 Stencils uses a structured filesystem format to store the templates in the project.
@@ -38,6 +44,7 @@ New Templates must be added with:
   stl ls
 ```
 
+List files with extensions
 ```bash
   stl ls -a
 ```
