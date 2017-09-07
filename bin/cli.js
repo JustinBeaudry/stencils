@@ -100,7 +100,12 @@ yargs
       'l'
     ],
     'list all templates',
-    _.noop,
+    yargs => {
+      yargs.option('all', {
+        alias: 'a',
+        describe: 'display all template data'
+      })
+    },
     argv => list.execute(argv)
   )
   .command([
