@@ -85,14 +85,14 @@ with their appropriate engine when running `stl ls`
 * `0.8.0-alpha`   - ~~change default engine to ejs~~
 * `0.8.5-alpha`   - ~~support ejs/mustache options (including custom delimiter/tags)~~
 * `0.9.0-alpha`   - support user level rc file, support rc file find up (similar to .npmrc behavior)
-* `0.10.0-alpha`   - get jsdoc working
-* `0.30.0-alpha`  - unit and integration tests
-* `0.40.0-alpha`  - support for directory type templates
-* `0.50.0-alpha`  - support for groups (defaults to local)
-* `0.60.0-alpha`  - add bash auto completion support
-* `0.62.0-alpha`  - update help text and cli output text
-* `0.64.0-alpha`  - simplify README
-* `0.66.0-beta`   - beta release
+* `0.20.0-alpha`  - unit and integration tests
+* `0.25.0-alpha`  - get jsdoc working
+* `0.30.0-alpha`  - support for directory type templates
+* `0.40.0-alpha`  - support for groups (defaults to local)
+* `0.50.0-alpha`  - add bash auto completion support
+* `0.54.0-alpha`  - update help text and cli output text
+* `0.56.0-alpha`  - simplify README
+* `0.58.0-beta`   - beta release
 * `1.0.0-rc1`     - release candidate
 * `1.0.0`         - public release
 
