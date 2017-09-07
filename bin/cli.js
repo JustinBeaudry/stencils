@@ -28,23 +28,27 @@
  *
  */
 
-const pkg = require('../package.json');
-const _ = require('lodash');
+const pkg   = require('../package.json');
+const _     = require('lodash');
 const yargs = require('yargs');
 
-const InitCommand = require('../lib/commands/init');
-const AddCommand = require('../lib/commands/add');
-const UseCommand = require('../lib/commands/use');
-const ListCommand = require('../lib/commands/list');
-const OpenCommand = require('../lib/commands/open');
-const PrintCommand = require('../lib/commands/print');
+const InitCommand   = require('../lib/commands/init');
+const AddCommand    = require('../lib/commands/add');
+const UseCommand    = require('../lib/commands/use');
+const ListCommand   = require('../lib/commands/list');
+const OpenCommand   = require('../lib/commands/open');
+const PrintCommand  = require('../lib/commands/print');
+const GetCommand    = require('../lib/commands/get');
+const SetCommand    = require('../lib/commands/set');
 
-const init = new InitCommand();
-const add = new AddCommand();
-const use = new UseCommand();
-const list = new ListCommand();
-const open = new OpenCommand();
+const init  = new InitCommand();
+const add   = new AddCommand();
+const use   = new UseCommand();
+const list  = new ListCommand();
+const open  = new OpenCommand();
 const print = new PrintCommand();
+const get   = new GetCommand();
+const set   = new SetCommand();
 
 yargs
   .option('verbose', {
@@ -121,6 +125,20 @@ yargs
     'print template to console',
     _.noop,
     argv => print.execute(argv)
+  )
+  .command([
+      'get <param>'
+    ],
+    'get config option',
+    _.noop,
+    argv => get.execute(argv)
+  )
+  .command([
+      'set <param> <value>'
+    ],
+    'set config option',
+    _.noop,
+    argv => set.execute(argv)
   )
   .usage('$0 <cmd> [args]')
   // @TODO:  add bash auto-complete - 0.60.0-alpha
