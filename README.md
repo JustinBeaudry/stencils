@@ -21,7 +21,7 @@ Stencil Projects are folders that have a `.stlrc` file and `.stencils` directory
   stl init
 ```
 
-When determining if a Project is a Stencil Project stencil looks at the current project and
+When determining if a project is a stencils project stencils looks at the current project and
 checks for the `.stlrc` file. If it doesn't find one in the current directory stencils will
 crawl the file system up until it reaches the users home directory.
 
