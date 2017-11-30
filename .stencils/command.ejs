@@ -1,0 +1,26 @@
+'use strict'
+
+const _       = require('lodash');
+const Command = require('./command');
+
+/**
+  *
+  * @module <%= name %>
+  *
+**/
+<% var nameUpper = name.charAt(0).toUpperCase() + name.slice(1) -%>
+
+module.exports = class <%= nameUpper %>Command extends Command {
+  constructor() {
+    super('<%= name %>');
+  }
+  /**
+   *
+   * @params {{      
+     }} argv
+   * @returns {Promise.<*>}
+   */
+  async run(argv={}) {
+    return Promise.resolve();
+  }
+}

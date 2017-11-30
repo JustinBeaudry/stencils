@@ -7,6 +7,8 @@ A simple CLI tool for managing and generating templates for projects; a simplifi
 
 ## Getting Started
 
+Stencils is built with node `8.4.0`.
+
 ### Installation
 
 ```javascript
@@ -133,6 +135,7 @@ with their appropriate engine when running `stl ls`
 * remote templates
 * core templates (pre-established templates) using the groups feature TBD in `0.30.0-alpha`
 * symlink templates
+* add template type as second param (throws if not valid type)
 
 ## Want to help or have an idea?<br/>
 [Create feature request ticket](https://github.com/JustinBeaudry/stencils/issues/new?labels=feature%20request)

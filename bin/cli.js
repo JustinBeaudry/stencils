@@ -40,6 +40,7 @@ const OpenCommand   = require('../lib/commands/open');
 const PrintCommand  = require('../lib/commands/print');
 const GetCommand    = require('../lib/commands/get');
 const SetCommand    = require('../lib/commands/set');
+const ClearCommand  = require('../lib/commands/clear');
 
 const init  = new InitCommand();
 const add   = new AddCommand();
@@ -49,6 +50,7 @@ const open  = new OpenCommand();
 const print = new PrintCommand();
 const get   = new GetCommand();
 const set   = new SetCommand();
+const clear = new ClearCommand();
 
 yargs
   .option('verbose', {
@@ -82,7 +84,7 @@ yargs
     argv => add.execute(argv)
   )
   .command([
-      'use <name> [fileName]',
+      'use <name> <fileName>',
       'u'
     ],
     'create a file from a template',
@@ -144,6 +146,19 @@ yargs
     'set config option',
     _.noop,
     argv => set.execute(argv)
+  )
+  .command([
+      'clear [template]',
+      'c'
+    ],
+    'clear all templates',
+    yargs => {
+      yargs.option('force', {
+        alias: 'f',
+        describe: 'force template removal (otherwise prompts)'
+      });
+    },
+    argv => clear.execute(argv)
   )
   .usage('$0 <cmd> [args]')
   // @TODO:  add bash auto-complete - 0.60.0-alpha
