@@ -2,7 +2,7 @@ Stencils
 =============
 
 **DISCLAIMER:  This is an alpha project and as such has not settled on a stable API.<br/>**
-**DISCLAIMER:  I haven't had time to work on this and noticed some serious performance issues with this implementation. As such I do not recommend installing or trying out ATM. I am revising a better strategy for implementation.**
+**I haven't had time to work on this and noticed some serious performance issues with this implementation. As such I do not recommend installing or trying out ATM. I am revising a better strategy for implementation.**
 
 A simple CLI tool for managing and generating templates for projects; a simplified yeoman.
 
